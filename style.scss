@@ -1,0 +1,66 @@
+//* Setting
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%; //1rem = 10px
+}
+
+img {
+	display: block;
+	max-width: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Poppins", sans-serif;
+}
+
+.toggle {
+  cursor: pointer;
+
+  &__inp {
+    display: none;
+  }
+
+  &__inp:checked + &__bar {
+    background-color: #ff7870;
+  }
+
+  &__inp:checked + &__bar &__spin {
+    transform: translateX(6rem);
+  }
+
+  &__bar {
+    width: 10rem;
+    height: 4rem;
+    padding: .5rem;
+
+    background-color: #eee;
+    border-radius: 5rem;
+    transition: background-color .2s linear;
+  }
+
+  &__spin {
+    width: 3rem;
+    height: 3rem;
+    
+    background-color: white;
+    border-radius: 3rem;
+    transition: transform .2s linear;
+  }
+}
