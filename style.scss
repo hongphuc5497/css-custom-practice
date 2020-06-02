@@ -28,8 +28,18 @@ body {
   align-items: center;
 
   font-family: "Poppins", sans-serif;
+  overflow: hidden;
 }
 
+.wrapper {
+  width: 80rem;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+//* Custom checkbox toggle
 .toggle {
   cursor: pointer;
 
@@ -58,9 +68,84 @@ body {
   &__spin {
     width: 3rem;
     height: 3rem;
-    
+
     background-color: white;
     border-radius: 3rem;
     transition: transform .2s linear;
+  }
+}
+
+//* Button hover effect
+.buttons-wrapper {
+  display: flex;
+}
+
+.btn {
+  cursor: pointer;
+  border: 0;
+
+  position: relative;
+  z-index: 1;
+
+  padding: 1rem 2.5rem;
+  font-size: 1.6rem;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 5rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background-color: #ff7870;
+    border-radius: inherit;
+  }
+
+  &--left::before {
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    transition: width .25s linear;
+  }
+
+  &--left:hover::before {
+    width: 100%;
+  }
+
+  &--right::before {
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+    transition: width .25s linear;
+  }
+
+  &--right:hover::before {
+    width: 100%;
+  }
+
+  &--top::before {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    transition: height .25s linear;
+  }
+
+  &--top:hover::before {
+    height: 100%;
+  }
+
+  &--bottom::before {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    transition: height .25s linear;
+  }
+
+  &--bottom:hover::before {
+    height: 100%;
   }
 }
